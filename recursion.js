@@ -80,26 +80,17 @@ function split(str, sep) {
     return [str];
   return [str.slice(0, idx)].concat(split(str.slice(idx + sep.length), sep));
 }
-console.log(split('1/12/2017', '/'));
+// console.log(split('1/12/2017', '/'));
 
-
-const binary = num => {
-  if (num ===1) return 1;
-  const next = binary(Math.floor(num/2));
+const binary = (num, counter=0) => {
+  counter++;
+  if (num ===1) {console.log(counter, num); return 1;}
   const now = num%2;
+  const next = binary(Math.floor(num/2),counter);
+  console.log(counter, num, now, next);
   return `${next}${now}`;  
 };
-// console.log(binary(25));
-
-function convertToBinary(num){
-  if(num>0){
-    let binary = Math.floor(num%2);
-    return (convertToBinary(Math.floor(num/2))+ binary);
-  } else {
-    return '';
-  }
-}
-console.log(convertToBinary(25));
+console.log(binary(32));
 
 const getRemainder = (wordArray, index) => {          // console.log('remainder funct',wordArray, index);
   const tempArray = [...wordArray];                   // console.log('tempArray',tempArray);
@@ -122,4 +113,4 @@ const anagram = wordArray => {
   return newArray; 
 };
 
-console.log( anagram(['e','a','s','t']) );
+// console.log( anagram(['e','a','s','t']) );
