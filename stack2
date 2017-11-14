@@ -1,0 +1,18 @@
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+  // push each character onto stack - not needed if we already have a stack
+  for (let i=0;i<s.length;i++ ){
+    palindromeStack.push(s.charAt(i));    
+  }
+  // we have a stack to compare now
+  palindromeStack.display();
+  let currentNode = palindromeStack.top;
+  console.log('-------');
+  // copy the stack in reverse
+  while ( currentNode.next !== null ) {
+    comparisonStack.push(currentNode.data);
+    currentNode = currentNode.next;
+  }
+  comparisonStack.push(currentNode.data);  
+  comparisonStack.display();
+  // finally compare the 2 stacks; will have same length
+}

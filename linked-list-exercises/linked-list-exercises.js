@@ -1,6 +1,6 @@
 'use strict';
 //Exercise 1
-class LinkedList {
+export class LinkedList {
   constructor() {
     this.length = 0;
     this.head = null;
@@ -211,7 +211,7 @@ const emptyList = new LinkedList();
 // Exercise 6
 
 //Exercise 7
-class DoublyLinkedList {
+export class DoublyLinkedList {
   constructor() {
     this.length = 0;
     this.head = null;
