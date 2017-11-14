@@ -63,7 +63,31 @@ class BinarySearchTree {
     }
   }
 
+  _replaceWith(node) { // node = node to use ILO this
+    if (this.parent) { // this = what we want to replace
+      if (this === this.parent.left) {
+        this.parent.left = node;
+      } else if (this === this.parent.right) {
+        this.parent.right = node;
+      }
 
-  
+      if (node) {
+        node.parent = this.parent;
+      }
+    } else {
+      if (node) {
+        this.key = node.key;
+        this.value = node.value;
+        this.left = node.left;
+        this.right = node.right;
+      } else {
+        this.key = null;
+        this.value = null;
+        this.left = null;
+        this.right = null;
+      }
+    }
+  }
+
 
 }
